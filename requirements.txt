@@ -1,0 +1,11 @@
+jieba
+numpy==1.14.0
+tensorflow==1.13.1
+spacy
+stanfordnlp
+tqdm
+scipy
+jupyter-core
+absl-py
+sklearn
+# -i https://pypi.tuna.tsinghua.edu.cn/simple
