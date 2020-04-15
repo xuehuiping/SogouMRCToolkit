@@ -1,0 +1,3 @@
+epochs=2
+
+2020-04-15 13:40:51,627 - root - INFO - - Eval metrics: exact_match: 24.437 ; f1: 36.652

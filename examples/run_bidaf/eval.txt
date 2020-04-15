@@ -1,0 +1,3 @@
+epochs=15
+
+- Eval metrics: f1: 77.271 ; exact_match: 67.692
