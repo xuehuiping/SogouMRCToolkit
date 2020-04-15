@@ -8,7 +8,7 @@ import logging
 import random
 random.seed(1234)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-data_folder = ''
+data_folder = 'data/'
 train_file = data_folder + "train-v1.1.json"
 dev_file = data_folder + "dev-v1.1.json"
 reader = SquadReader()
@@ -18,7 +18,7 @@ random.shuffle(train_data)
 eval_data = reader.read(dev_file)
 evaluator = SquadEvaluator(dev_file)
 vocab = Vocabulary(do_lowercase=True)
-bert_dir = ''
+bert_dir = 'data/uncased_L-2_H-128_A-2/'
 bert_data_helper = BertDataHelper(bert_dir)
 vocab.build_vocab(train_data + eval_data, min_word_count=3, min_char_count=10)
 
@@ -37,4 +37,6 @@ num_train_steps = int(
 num_warmup_steps = int(num_train_steps * warmup_proportion)
 
 model.compile(3e-5,num_train_steps=num_train_steps,num_warmup_steps=num_warmup_steps)
-model.train_and_evaluate(train_batch_generator, eval_batch_generator,evaluator, epochs=2, eposides=1)
+#model.train_and_evaluate(train_batch_generator, eval_batch_generator,evaluator, epochs=2, eposides=1)
+model.train_and_evaluate(train_batch_generator, eval_batch_generator, evaluator, epochs=20, eposides=1,save_dir='models/bert/squad/')
+
